@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risikesavan</title>
+  <!-- Favicon for the browser tab -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232dd4bf'/><text x='50%' y='50%' font-family='sans-serif' font-weight='bold' font-size='60' fill='%23000' dominant-baseline='central' text-anchor='middle'>R</text></svg>">
+
+  <!-- Premium Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS Dependencies -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-deep: #050505;
+      --bg-elevated: #0A0A0A;
+      --text-main: #FFFFFF;
+      --text-dim: #D8D8D8;
+      --accent: #BDBDBD;
+      --border: rgba(255, 255, 255, 0.08);
+      --card-fill: rgba(255, 255, 255, 0.03);
+      --font-head: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    /* Lenis Smooth Scroll Setup */
+    html.lenis {
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      margin: 0;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- Global Utilities --- */
+    .section-padding {
+      padding: 140px 0;
+    }
+
+    .line-reveal {
+      overflow: hidden;
+      display: block;
+    }
+
+    .label-tag {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    /* --- Navigation (NeoVision Style) --- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 25px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      background: rgba(5, 5, 5, 0.4);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      margin: 0 30px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      opacity: 0.8;
+    }
+
+    .nav-status {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .nav-status:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(6rem, 15vw, 10.5rem);
+      line-height: 0.9;
+      font-weight: 500;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
+
+    .hero-desc {
+      max-width: 480px;
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 50px;
+    }
+
+    .btn-neo {
+      padding: 10px 25px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #000;
+      border: none;
+      margin-right: 20px;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: #fff;
+    }
+
+    .btn-neo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      width: 100%;
+      height: 800px;
+    }
+
+    .hero-img {
+      width: 100%;
+      margin-top: 20px;
+      height: 70%;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      filter: contrast(1.1) brightness(0.8);
+    }
+
+    .hero-caption {
+      margin-top: 25px;
+      font-size: 13px;
+      font-weight: 500;
+      color:rgb(167, 218, 239);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .stat-bubble {
+      position: absolute;
+      bottom: 10%;
+      left: -50px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    /* --- Expertise Grid --- */
+    .card-expertise {
+      background: transparent;
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px 20px;
+      height: 100%;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .card-expertise:hover {
+      border-top-color: #2dd4bf;
+      transform: translateY(-3px);
+    }
+
+    .card-expertise h3 {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .card-expertise p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .tool-badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 16px;
+      row-gap: 8px;
+      margin-top: 25px;
+    }
+
+    .tool-badge {
+      font-size: 10px;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .card-expertise:hover .tool-badge {
+      border-color: rgba(93, 220, 203, 0.5);
+      background: rgba(45, 212, 191, 0.1);
+     
+      color: #2dd4bf;
+    }
+
+    .card-link {  
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 30px;
+      display: block;
+    }
+
+    /* --- Innovation Section (Layout Shift) --- */
+    .innovation-wrap {
+      position: relative;
+      border-top: 1px solid var(--border);
+      padding-top: 100px;
+    }
+
+    .sidebar-tags {
+      border-right: 1px solid var(--border);
+      height: 100%;
+    }
+
+    .sidebar-tags div {
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: var(--accent);
+      opacity: 0.5;
+    }
+
+    .sidebar-tags .active {
+      opacity: 1;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* --- Testimonial / Experience Row --- */
+    .exp-row {
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.3s;
+    }
+
+    .exp-row:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .exp-title {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+    }
+
+    .exp-dept {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+
+    /* --- Footer --- */
+    footer {
+      padding: 100px 0 40px;
+      background: #000;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-logo {
+      font-size: 1.5rem;
+      font-family: var(--font-head);
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .footer-links h5 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 25px;
+    }
+
+    .footer-links a {
+      display: block;
+      color: var(--text-dim);
+      text-decoration: none;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .floating-socials {
+      position: fixed;
+      bottom: 40px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+    .floating-socials a {
+      color: var(--text-dim);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:transparent;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      text-decoration: none;
+    }
+    .floating-socials a:hover {
+      color: #fff;
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    }
+
+    #contactModal {
+      position: fixed;
+      bottom: 40px;
+      right: -450px;
+      width: 90%;
+      max-width: 400px;
+      background: #ffffff;
+      border-radius: 16px;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 25px 25px;
+      box-shadow: -10px 20px 50px rgba(0, 0, 0, 0.2);
+    }
+    #contactModal.active {
+      right: 40px;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      z-index: 9998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      color: #666;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s;
+      padding: 5px;
+    }
+    .close-btn:hover {
+      color: #000;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: #f8f9fa;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 15px;
+      outline: none;
+      transition: border-color 0.3s;
+      font-size: 0.95rem;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #868e96;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #333;
+    }
+    .contact-form textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+        .footer-card {
+          background: #18181b;
+          border: 1px solid rgba(255, 255, 255, 0.03);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .footer-card:hover {
+          transform: translateY(-5px);
+        }
+     
+  
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating Socials -->
+  <div class="floating-socials d-none d-lg-flex">
+    <a href="https://www.linkedin.com/in/risikesavan-t-0b0533217" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="https://github.com/rishi500-doc" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+    <a href="mailto:k7risi@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#home" class="logo" style="text-decoration: none; color: inherit;">RK.</a>
+      <div class="nav-links d-none d-lg-block">
+        <a href="#projects">Work</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- The block is left-aligned for strong typography, and shifted upwards slightly for visual balance -->
+        <div class="col-lg-7" style="margin-top: -150px;">
+          <span class="label-tag">Clinical Insight. Data Intelligence. <span style="color: #2dd4bf;">AI</span> Innovation</span>
+          <h1 class="hero-title">
+            CODE <br>DATA <br>
+            <span style="color: var(--accent)">IMPACT</span>
+          </h1>
+         
+          <p style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; color: var(--text-dim); margin-bottom: 40px; letter-spacing: 1px;">
+            Data Scientist &bull; Clinical <span style="color: #2dd4bf;">AI</span> &bull; ML Engineer
+          </p>
+
+          <div class="d-flex">
+            <a href="#projects" class="btn-neo btn-primary">Check it Out</a>
+          </div>
+        </div>
+        <div class="col-lg-5 ps-lg-5 mt-5 mt-lg-0">
+          <div class="hero-image-wrap">
+            <div class="hero-img" style="background-image: url('images/hero.jpg');"></div>
+            <p class="hero-caption">Risikesavan T</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section-padding" id="about">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5 mb-5 mb-lg-0">
+          <img src="images/head.jpeg" class="img-fluid rounded-2" alt="AI Brain Nodes" style="width:100%; object-fit:cover;">
+        </div>
+        <div class="col-lg-6 offset-lg-1">
+          <span class="label-tag">About Me</span>
+          <h2 class="hero-title" style="font-size: 1.9rem; margin-bottom: 40px;">
+            Hi, I'm <span style="letter-spacing: 1px;color: #2dd4bf">RisiKesavan</span>
+          </h2>
+          <p class="hero-desc" style="max-width: 100%;">
+            I build solutions where <strong>healthcare, data, and technology converge</strong>.<br><br>
+            With a background in clinical healthcare and a growing expertise in Health Informatics, software
+            development, <span style="color: #2dd4bf;">AI</span>, and analytics, I focus on creating meaningful digital products that solve real-world
+            problems and improve healthcare outcomes.<br><br>
+            Explore my portfolio to see the projects, technologies, and experiences driving my journey.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section class="section-padding" id="expertise" style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-5">
+        <div>
+          <span class="label-tag">Technologies and tools behind my work</span>
+          <h2 class="hero-title m-0" style="font-size: 3.5rem;">SKILLS</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-expertise">
+            <h3><span style="color: #2dd4bf;">AI</span> / ML</h3>
+            <p>Building intelligent clinical decision support and diagnostic engines.</p>
+            <div class="tool-badge-container">
+              <span class="tool-badge">Python</span>
+              <span class="tool-badge">RAG</span>
+              <span class="tool-badge">LLMs</span>
+              <span class="tool-badge">LangChain</span>
+              <span class="tool-badge">Transformers</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-expertise">
+            <h3>Health IT</h3>
+            <p>End-to-end clinical application design aligned with real hospital workflows.</p>
+            <div class="tool-badge-container">
+              <span class="tool-badge">EHR / EMR</span>
+              <span class="tool-badge">FHIR</span>
+              <span class="tool-badge">HL7</span>
+              <span class="tool-badge">DICOM</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-expertise">
+            <h3>Data &amp; Analytics</h3>
+            <p>Transforming raw clinical datasets into actionable insights for providers.</p>
+            <div class="tool-badge-container">
+              <span class="tool-badge">SQL</span>
+              <span class="tool-badge">Pandas</span>
+              <span class="tool-badge">NumPy</span>
+              <span class="tool-badge">Power BI</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-expertise">
+            <h3>Backend Systems</h3>
+            <p>Scalable backend architectures powering high-availability clinical platforms.</p>
+            <div class="tool-badge-container">
+              <span class="tool-badge">PostgreSQL</span>
+              <span class="tool-badge">FastAPI</span>
+              <span class="tool-badge">Flask</span>
+              <span class="tool-badge">ChromaDB</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-expertise">
+            <h3>Automation</h3>
+            <p>Automated EHR test suites and UI workflow validation at Apollo's MedMantra.</p>
+            <div class="tool-badge-container">
+              <span class="tool-badge">Playwright</span>
+              <span class="tool-badge">TypeScript</span>
+              <span class="tool-badge">Regression</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-expertise">
+            <h3>Clinical Insight</h3>
+            <p>B.Sc. Physician Assistant spanning Cardiology, ICU, and Nephrology. This clinical lens shapes every system I engineer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section-padding" id="projects">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-5">
+        <div>
+          <span class="label-tag">Featured Work</span>
+          <h2 class="hero-title m-0" style="font-size: 4rem;">Projects</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 d-flex">
+          <a href="https://github.com/rishi500-doc/MediQ--RareInsight-CDSS" target="_blank" class="w-100" style="text-decoration: none; color: inherit; display: flex;">
+            <div class="card-expertise w-100" style="display: flex; flex-direction: column;">
+              <h3 style="font-size:1.6rem; margin-top: 10px; font-family: 'Poppins', sans-serif; font-style: normal; text-transform: none; letter-spacing: -0.5px; font-weight: 600; color: #fff;">MEDIQ</h3>
+              <p style="margin-bottom: 25px;">Rare Disease Clinical Decision Support System. <span style="color: #2dd4bf;">AI</span>-driven platform helping clinicians identify rare diseases using RAG and PubMedBERT, with longitudinal patient tracking via a Patient Digital Twin.</p>
+              <div class="tool-badge-container" style="margin-top: auto;">
+                <span class="tool-badge">FastAPI</span>
+                <span class="tool-badge">RAG</span>
+                <span class="tool-badge">DeepSeek</span>
+                <span class="tool-badge">spaCy</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 d-flex">
+          <a href="https://github.com/rishi500-doc/VUS_Tracker" target="_blank" class="w-100" style="text-decoration: none; color: inherit; display: flex;">
+            <div class="card-expertise w-100" style="display: flex; flex-direction: column;">
+              <h3 style="font-size:1.6rem; margin-top: 10px; font-family: 'Poppins', sans-serif; font-style: normal; text-transform: none; letter-spacing: -0.5px; font-weight: 600; color: #fff;">VUS Tracker</h3>
+              <p style="margin-bottom: 25px;"><span style="color: #2dd4bf;">AI</span>-Augmented Variant Classification Platform automating ACMG-guideline-based classification of Variants of Uncertain Significance. RAG module with vector databases for clinical evidence synthesis.</p>
+              <div class="tool-badge-container" style="margin-top: auto;">
+                <span class="tool-badge">Flask</span>
+                <span class="tool-badge">PostgreSQL</span>
+                <span class="tool-badge">RAG</span>
+                <span class="tool-badge">ACMG</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 d-flex">
+          <a href="https://github.com/rishi500-doc/pediatric-EMR" target="_blank" class="w-100" style="text-decoration: none; color: inherit; display: flex;">
+            <div class="card-expertise w-100" style="display: flex; flex-direction: column;">
+              <h3 style="font-size:1.6rem; margin-top: 10px; font-family: 'Poppins', sans-serif; font-style: normal; text-transform: none; letter-spacing: -0.5px; font-weight: 600; color: #fff;">Pediatric EMR</h3>
+              <p style="margin-bottom: 25px;">Specialty Electronic Health Record for pediatricians and nursing staff — enrollment, growth tracking, prescriptions, and outpatient/inpatient clinical workflow screens.</p>
+              <div class="tool-badge-container" style="margin-top: auto;">
+                <span class="tool-badge">Flask</span>
+                <span class="tool-badge">SQLAlchemy</span>
+                <span class="tool-badge">SQLite</span>
+                <span class="tool-badge">RBAC</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section-padding" id="experience">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-5">
+        <div>
+          <span class="label-tag">Work History & Education</span>
+          <h2 class="hero-title m-0" style="font-size: 3.5rem;">Experience &amp; Impact</h2>
+        </div>
+      </div>
+      <p style="color: var(--text-dim); margin-bottom: 3rem; max-width: 600px;">From multi-specialty clinical wards to corporate healthcare IT automation — bridging medicine and engineering.</p>
+      
+      <div class="row g-4 mb-3">
+        <!-- Automation Testing & MSc -->
+        <div class="col-lg-7">
+          <h3 style="font-size: 1rem; font-family: 'Poppins', sans-serif; margin-bottom: 20px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase;">Professional Experience</h3>
+          <div class="card-expertise h-auto" style="padding: 25px 20px;">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h3 style="font-size:1.4rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">Automation Testing Intern</h3>
+                <p style="font-size:0.85rem; color: #2dd4bf; margin-bottom:15px; font-weight: 500;">Apollo Hospitals Corporate Office · Chennai · Dec 2025 – Apr 2026</p>
+                <ul style="color: var(--text-dim); font-size:0.85rem; padding-left:18px; line-height:1.8; margin-bottom: 0;">
+                  <li>Automated end-to-end EHR test scripts using Playwright &amp; TypeScript for Apollo's MedMantra platform.</li>
+                  <li>Executed functional &amp; regression testing; identified defects and validated UI workflows.</li>
+                  <li>Designed reusable test cases with QA and dev teams, improving test coverage and reliability.</li>
+                </ul>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <h3 style="font-size: 1rem; font-family: 'Poppins', sans-serif; margin-bottom: 20px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase;">Education</h3>
+          <div class="card-expertise h-auto" style="padding: 25px 20px;">
+            <h3 style="font-size:1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">MSc, Health Informatics &amp; Analytics</h3>
+            <p style="font-size:0.85rem; color: var(--text-dim); margin-bottom:10px;">The Apollo University, Chittoor</p>
+            <span class="tool-badge">CGPA 9.29/10</span>
+            <span class="tool-badge" style="background: transparent; border-color: transparent; box-shadow: none;">Sep 2024 – May 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="row g-4">
+        <!-- Clinical Intern & BSc -->
+        <div class="col-lg-7">
+          <div class="card-expertise h-auto" style="padding: 25px 20px;">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h3 style="font-size:1.4rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">Clinical Intern</h3>
+                <p style="font-size:0.85rem; color: #2dd4bf; margin-bottom:15px; font-weight: 500;">Hindusthan Hospital · Coimbatore · Mar 2023 – Mar 2024</p>
+                <ul style="color: var(--text-dim); font-size:0.85rem; padding-left:18px; line-height:1.8; margin-bottom: 0;">
+                  <li>Rotations across Cardiology, Gastroenterology, Orthopedics, Nephrology, and ICU departments.</li>
+                  <li>Supported patient management, clinical documentation, diagnostic evaluations, and EHR workflows.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card-expertise h-auto" style="padding: 25px 20px;">
+            <h3 style="font-size:1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">B.Sc., Physician Assistant</h3>
+            <p style="font-size:0.85rem; color: var(--text-dim); margin-bottom:10px;">Nandha Academy of Allied Health Sciences, Erode</p>
+            <span class="tool-badge">CGPA 7.16/10</span>
+            <span class="tool-badge" style="background: transparent; border-color: transparent; box-shadow: none;">May 2019 – Dec 2024</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Certifications Row -->
+      <div class="mt-5 pt-4" style="border-top: 1px solid rgba(255,255,255,0.05);">
+        <h3 style="font-size: 2rem; font-family: 'Poppins', sans-serif; margin-bottom: 25px;margin-top: 100px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase;">Certifications</h3>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card-expertise h-auto d-flex align-items-center" style="padding: 25px; gap: 20px;">
+             
+              <div>
+                <h4 style="font-size: 1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 4px; color: #fff;">Data Analytics</h4>
+                <span style="font-size: 0.85rem; color: var(--text-dim);">Deloitte</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card-expertise h-auto d-flex align-items-center" style="padding: 25px; gap: 20px;">
+              
+              <div>
+                <h4 style="font-size: 1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 4px; color: #fff;"><span style="color: #2dd4bf;">AI</span> Fundamentals</h4>
+                <span style="font-size: 0.85rem; color: var(--text-dim);">Datacamp</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Footer -->
+  <footer style="padding: 100px 0 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); position: relative; overflow: hidden; background: var(--bg-main); " id="contact">
+    <!-- Abstract Background Glow for Luxury Feel -->
+    <div style="position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(circle, rgba(45, 212, 191, 0.05) 0%, rgba(0,0,0,0) 70%); z-index: 0; pointer-events: none;"></div>
+
+    <div class="container" style="position: relative; z-index: 1;">
+      
+      <!-- Massive Hero Text -->
+      <div class="text-center mb-5 pb-5">
+        <h2 style="font-size: clamp(4rem, 10vw, 8rem); font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px;">
+          <span style="color: #2dd4bf;">LET'S BUILD</span>
+          <span style="color: rgba(255,255,255,0.2); font-style: italic; font-weight: 400;">THE</span><br>
+          <span style="color: #fff;">FUTURE TOGETHER</span>
+        </h2>
+        <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
+          Exploring opportunities at the intersection of healthcare, data, and <span style="color: #2dd4bf;">AI</span> to create meaningful digital solutions.
+        </p>
+      </div>
+
+
+      <div class="row g-4 mb-5 pb-4">
+        
+        <!-- Left Card -->
+        <div class="col-lg-6 d-flex">
+          <div class="footer-card w-100 d-flex flex-column" style="padding: 50px; border-radius: 24px;">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+              <span style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Mission</span>
+              <i class="fa-solid fa-arrow-right" style="color: var(--text-dim);"></i>
+            </div>
+            <h3 style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; color: #fff; font-weight: 600; margin-bottom: 20px; letter-spacing: -1px;">Creating Meaningful<br>Digital Solutions</h3>
+            <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.8; margin-bottom: 40px; max-width: 90%;">
+              I enjoy using technology, data, and healthcare knowledge to build tools that solve real-world problems and make a positive impact.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Card -->
+        <div class="col-lg-6 d-flex">
+          <div class="footer-card w-100 d-flex flex-column" style="padding: 50px; border-radius: 24px;">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+              <span style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px;">
+                Let's Connect <span style="display:inline-block; width:6px; height:6px; background:#2dd4bf; border-radius:50%;"></span>
+              </span>
+              <i class="fa-solid fa-arrow-right" style="color: var(--text-dim);"></i>
+            </div>
+            <h3 style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; color: #fff; font-weight: 600; margin-bottom: 40px; letter-spacing: -1px;">Ready to innovate<br>together?</h3>
+            
+            <div class="mt-auto">
+              <a href="javascript:void(0)" onclick="openContactModal()" class="btn-neo" style="display: inline-block; padding: 15px 40px; border-radius: 15px; background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; text-decoration: none; font-weight: 500; font-family: 'Poppins', sans-serif; transition: all 0.3s; margin-bottom: 30px;" onmouseover="this.style.borderColor='#2dd4bf'; this.style.color='#2dd4bf'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'; this.style.color='#fff'">Reach Out</a>
+              
+              <div class="d-flex gap-4 align-items-center">
+                <a href="https://www.linkedin.com/in/risikesavan-t-0b0533217" target="_blank" style="color: var(--text-dim); font-size:1rem; transition: color 0.3s;text-decoration: none;" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='var(--text-dim)'">LinkedIn</a>
+                <a href="https://github.com/rishi500-doc" target="_blank" style="color: var(--text-dim); font-size:1rem; transition: color 0.3s;text-decoration: none;" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='var(--text-dim)'">GitHub</a>
+                <a href="mailto:[EMAIL_ADDRESS]" style="color: var(--text-dim); font-size:1rem; transition: color 0.3s;text-decoration: none;" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='var(--text-dim)'">Email</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+        
+
+  <div class="modal-overlay" id="modalOverlay" onclick="closeContactModal()"></div>
+  <div id="contactModal">
+    <button class="close-btn" onclick="closeContactModal()"><i class="fa-solid fa-xmark"></i></button>
+    <form id="contactForm" class="contact-form" style="margin-top: 10px;">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn-neo" style="width: 100%; padding: 12px; border-radius: 8px; background: #1a1a1a; border: none; color: #fff; font-weight: 500; font-family: 'Poppins', sans-serif; cursor: pointer; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); margin-top: 5px;" onmouseover="this.style.background='#000'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.background='#1a1a1a'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">Submit</button>
+      <p id="formResult" style="display: none; text-align: center; margin-top: 15px; color: #2dd4bf; font-family: 'Poppins', sans-serif; font-size: 0.9rem;"></p>
+    </form>
+    </div>
+  </div>
+
+      <!-- Footer Bottom -->
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4" style="border-top: 1px solid rgba(44, 43, 43, 0.05);">
+        <p class="text-muted small mb-0" style="font-family: 'Poppins', sans-serif;color: #BDBDBD;">
+          © 2026 Risikesavan T
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP & Motion Dependencies -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    // 1. Initialize Lenis Smooth Scroll
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Smooth scroll for anchor links using Lenis
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        lenis.scrollTo(this.getAttribute('href'));
+      });
+    });
+
+    // 2. GSAP Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Reveal
+    const heroTl = gsap.timeline();
+    heroTl.from(".hero-title", {
+      y: 100,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power4.out",
+      stagger: 0.2
+    }).from(".hero-desc", {
+      opacity: 0,
+      y: 20,
+      duration: 0.8
+    }, "-=0.8").from(".hero-image-wrap", {
+      scale: 1.1,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power2.out"
+    }, "-=1");
+
+    // Section Reveal Logic
+    gsap.utils.toArray('.card-expertise, .exp-row, .section-padding img').forEach(el => {
+      gsap.from(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+      });
+    });
+
+    // Parallax Effect for Hero Image
+    gsap.to(".hero-img", {
+      yPercent: 20,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  
+    function openContactModal() {
+      document.getElementById('contactModal').classList.add('active');
+      document.getElementById('modalOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+      document.getElementById('contactModal').classList.remove('active');
+      document.getElementById('modalOverlay').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Handle Form Submission with Web3Forms
+    const contactForm = document.getElementById('contactForm');
+    const formResult = document.getElementById('formResult');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        formResult.style.display = 'block';
+        formResult.innerText = "Sending...";
+        formResult.style.color = '#666';
+
+        const formData = new FormData(contactForm);
+
+        // Using FormSubmit.co to send emails directly to your email address!
+        const formSubmitURL = 'https://formsubmit.co/ajax/k7risi@gmail.com';
+
+        fetch(formSubmitURL, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(async (response) => {
+          if (response.ok) {
+            formResult.innerText = "Message sent successfully!";
+            formResult.style.color = '#2dd4bf';
+            contactForm.reset();
+            setTimeout(() => {
+              closeContactModal();
+              formResult.style.display = 'none';
+            }, 3000);
+          } else {
+            let json = await response.json();
+            console.log(response);
+            formResult.innerText = json.error || "Oops! There was a problem submitting your form";
+            formResult.style.color = '#ff4a4a';
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          formResult.innerText = "Oops! There was a problem submitting your form";
+          formResult.style.color = '#ff4a4a';
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>
