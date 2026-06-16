@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Risikesavan</title>
   <!-- Favicon for the browser tab -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232dd4bf'/><text x='50%' y='50%' font-family='sans-serif' font-weight='bold' font-size='60' fill='%23000' dominant-baseline='central' text-anchor='middle'>R</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232dd4bf'/><text x='50%' y='50%' font-family='sans-serif' font-weight='bold' font-size='60' fill='%23000' dominant-baseline='central' text-anchor='middle'>R</text></svg>">
 
   <!-- Premium Fonts -->
   <link
@@ -128,7 +129,7 @@
       transition: all 0.3s ease;
       cursor: pointer;
     }
-    
+
     .nav-status:hover {
       background: rgba(255, 255, 255, 0.05);
       border-color: rgba(255, 255, 255, 0.2);
@@ -207,7 +208,7 @@
       margin-top: 25px;
       font-size: 13px;
       font-weight: 500;
-      color:rgb(167, 218, 239);
+      color: rgb(167, 218, 239);
       letter-spacing: 3px;
       text-transform: uppercase;
       text-align: right;
@@ -282,11 +283,11 @@
     .card-expertise:hover .tool-badge {
       border-color: rgba(93, 220, 203, 0.5);
       background: rgba(45, 212, 191, 0.1);
-     
+
       color: #2dd4bf;
     }
 
-    .card-link {  
+    .card-link {
       color: #fff;
       text-decoration: none;
       font-size: 12px;
@@ -383,6 +384,7 @@
       margin-bottom: 12px;
       font-size: 14px;
     }
+
     .floating-socials {
       position: fixed;
       bottom: 40px;
@@ -392,6 +394,7 @@
       gap: 15px;
       z-index: 1000;
     }
+
     .floating-socials a {
       color: var(--text-dim);
       font-size: 1.2rem;
@@ -402,11 +405,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background:transparent;
+      background: transparent;
       border: 1px solid var(--border);
       backdrop-filter: blur(10px);
       text-decoration: none;
     }
+
     .floating-socials a:hover {
       color: #fff;
       transform: translateY(-5px);
@@ -432,11 +436,13 @@
       padding: 30px 25px 25px;
       box-shadow: -10px 20px 50px rgba(0, 0, 0, 0.2);
     }
+
     #contactModal.active {
       right: 40px;
       opacity: 1;
       pointer-events: auto;
     }
+
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -450,10 +456,12 @@
       pointer-events: none;
       transition: opacity 0.3s ease;
     }
+
     .modal-overlay.active {
       opacity: 1;
       pointer-events: auto;
     }
+
     .close-btn {
       position: absolute;
       top: 15px;
@@ -466,9 +474,11 @@
       transition: color 0.3s;
       padding: 5px;
     }
+
     .close-btn:hover {
       color: #000;
     }
+
     .contact-form input,
     .contact-form textarea {
       width: 100%;
@@ -483,30 +493,95 @@
       transition: border-color 0.3s;
       font-size: 0.95rem;
     }
+
     .contact-form input::placeholder,
     .contact-form textarea::placeholder {
       color: #868e96;
     }
+
     .contact-form input:focus,
     .contact-form textarea:focus {
       border-color: #333;
     }
+
     .contact-form textarea {
       min-height: 100px;
       resize: vertical;
     }
 
-        .footer-card {
-          background: #18181b;
-          border: 1px solid rgba(255, 255, 255, 0.03);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .footer-card:hover {
-          transform: translateY(-5px);
-        }
-     
-  
+    .footer-card {
+      background: #18181b;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .footer-card:hover {
+      transform: translateY(-5px);
+    }
+
+    @media (max-width: 991px) {
+      .section-padding {
+        padding: 80px 0;
+      }
+
+      .hero {
+        padding-top: 120px;
+        min-height: auto;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 12vw, 5rem) !important;
+        margin-bottom: 20px;
+      }
+
+      .hero-image-wrap {
+        height: 400px;
+        margin-top: 40px;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(5, 5, 5, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        margin: 15px 0;
+        font-size: 14px;
+      }
+
+      .col-lg-7[style*="margin-top: -150px;"] {
+        margin-top: 0 !important;
+      }
+
+      #contactModal {
+        right: 5%;
+        width: 90%;
+      }
+
+      #contactModal.active {
+        right: 5%;
+      }
+
+      .footer-copyright {
+        margin-left: 0 !important;
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
   </style>
 </head>
 
@@ -514,16 +589,21 @@
 
   <!-- Floating Socials -->
   <div class="floating-socials d-none d-lg-flex">
-    <a href="https://www.linkedin.com/in/risikesavan-t-0b0533217" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="https://www.linkedin.com/in/risikesavan-t-0b0533217" target="_blank" title="LinkedIn"><i
+        class="fa-brands fa-linkedin"></i></a>
     <a href="https://github.com/rishi500-doc" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
     <a href="mailto:k7risi@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
   </div>
 
   <!-- Navigation -->
   <nav>
-    <div class="container nav-container">
+    <div class="container nav-container" style="position: relative;">
       <a href="#home" class="logo" style="text-decoration: none; color: inherit;">RK.</a>
-      <div class="nav-links d-none d-lg-block">
+      <div class="mobile-menu-btn d-lg-none" id="mobileMenuBtn"
+        style="font-size: 1.5rem; cursor: pointer; color: #fff;">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </div>
+      <div class="nav-links" id="navLinks">
         <a href="#projects">Work</a>
         <a href="#expertise">Expertise</a>
         <a href="#contact">Contact</a>
@@ -537,13 +617,15 @@
       <div class="row align-items-center">
         <!-- The block is left-aligned for strong typography, and shifted upwards slightly for visual balance -->
         <div class="col-lg-7" style="margin-top: -150px;">
-          <span class="label-tag">Clinical Insight. Data Intelligence. <span style="color: #2dd4bf;">AI</span> Innovation</span>
+          <span class="label-tag">Clinical Insight. Data Intelligence. <span style="color: #2dd4bf;">AI</span>
+            Innovation</span>
           <h1 class="hero-title">
             CODE <br>DATA <br>
             <span style="color: var(--accent)">IMPACT</span>
           </h1>
-         
-          <p style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; color: var(--text-dim); margin-bottom: 40px; letter-spacing: 1px;">
+
+          <p
+            style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; color: var(--text-dim); margin-bottom: 40px; letter-spacing: 1px;">
             Data Scientist &bull; Clinical <span style="color: #2dd4bf;">AI</span> &bull; ML Engineer
           </p>
 
@@ -566,7 +648,8 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-5 mb-5 mb-lg-0">
-          <img src="images/head.jpeg" class="img-fluid rounded-2" alt="AI Brain Nodes" style="width:100%; object-fit:cover;">
+          <img src="images/head.jpeg" class="img-fluid rounded-2" alt="AI Brain Nodes"
+            style="width:100%; object-fit:cover;">
         </div>
         <div class="col-lg-6 offset-lg-1">
           <span class="label-tag">About Me</span>
@@ -576,7 +659,8 @@
           <p class="hero-desc" style="max-width: 100%;">
             I build solutions where <strong>healthcare, data, and technology converge</strong>.<br><br>
             With a background in clinical healthcare and a growing expertise in Health Informatics, software
-            development, <span style="color: #2dd4bf;">AI</span>, and analytics, I focus on creating meaningful digital products that solve real-world
+            development, <span style="color: #2dd4bf;">AI</span>, and analytics, I focus on creating meaningful digital
+            products that solve real-world
             problems and improve healthcare outcomes.<br><br>
             Explore my portfolio to see the projects, technologies, and experiences driving my journey.
           </p>
@@ -660,7 +744,8 @@
         <div class="col-md-4">
           <div class="card-expertise">
             <h3>Clinical Insight</h3>
-            <p>B.Sc. Physician Assistant spanning Cardiology, ICU, and Nephrology. This clinical lens shapes every system I engineer.</p>
+            <p>B.Sc. Physician Assistant spanning Cardiology, ICU, and Nephrology. This clinical lens shapes every
+              system I engineer.</p>
           </div>
         </div>
       </div>
@@ -678,10 +763,15 @@
       </div>
       <div class="row g-4">
         <div class="col-lg-4 d-flex">
-          <a href="https://github.com/rishi500-doc/MediQ--RareInsight-CDSS" target="_blank" class="w-100" style="text-decoration: none; color: inherit; display: flex;">
+          <a href="https://github.com/rishi500-doc/MediQ--RareInsight-CDSS" target="_blank" class="w-100"
+            style="text-decoration: none; color: inherit; display: flex;">
             <div class="card-expertise w-100" style="display: flex; flex-direction: column;">
-              <h3 style="font-size:1.6rem; margin-top: 10px; font-family: 'Poppins', sans-serif; font-style: normal; text-transform: none; letter-spacing: -0.5px; font-weight: 600; color: #fff;">MEDIQ</h3>
-              <p style="margin-bottom: 25px;">Rare Disease Clinical Decision Support System. <span style="color: #2dd4bf;">AI</span>-driven platform helping clinicians identify rare diseases using RAG and PubMedBERT, with longitudinal patient tracking via a Patient Digital Twin.</p>
+              <h3
+                style="font-size:1.6rem; margin-top: 10px; font-family: 'Poppins', sans-serif; font-style: normal; text-transform: none; letter-spacing: -0.5px; font-weight: 600; color: #fff;">
+                MEDIQ</h3>
+              <p style="margin-bottom: 25px;">Rare Disease Clinical Decision Support System. <span
+                  style="color: #2dd4bf;">AI</span>-driven platform helping clinicians identify rare diseases using RAG
+                and PubMedBERT, with longitudinal patient tracking via a Patient Digital Twin.</p>
               <div class="tool-badge-container" style="margin-top: auto;">
                 <span class="tool-badge">FastAPI</span>
                 <span class="tool-badge">RAG</span>
@@ -692,10 +782,15 @@
           </a>
         </div>
         <div class="col-lg-4 d-flex">
-          <a href="https://github.com/rishi500-doc/VUS_Tracker" target="_blank" class="w-100" style="text-decoration: none; color: inherit; display: flex;">
+          <a href="https://github.com/rishi500-doc/VUS_Tracker" target="_blank" class="w-100"
+            style="text-decoration: none; color: inherit; display: flex;">
             <div class="card-expertise w-100" style="display: flex; flex-direction: column;">
-              <h3 style="font-size:1.6rem; margin-top: 10px; font-family: 'Poppins', sans-serif; font-style: normal; text-transform: none; letter-spacing: -0.5px; font-weight: 600; color: #fff;">VUS Tracker</h3>
-              <p style="margin-bottom: 25px;"><span style="color: #2dd4bf;">AI</span>-Augmented Variant Classification Platform automating ACMG-guideline-based classification of Variants of Uncertain Significance. RAG module with vector databases for clinical evidence synthesis.</p>
+              <h3
+                style="font-size:1.6rem; margin-top: 10px; font-family: 'Poppins', sans-serif; font-style: normal; text-transform: none; letter-spacing: -0.5px; font-weight: 600; color: #fff;">
+                VUS Tracker</h3>
+              <p style="margin-bottom: 25px;"><span style="color: #2dd4bf;">AI</span>-Augmented Variant Classification
+                Platform automating ACMG-guideline-based classification of Variants of Uncertain Significance. RAG
+                module with vector databases for clinical evidence synthesis.</p>
               <div class="tool-badge-container" style="margin-top: auto;">
                 <span class="tool-badge">Flask</span>
                 <span class="tool-badge">PostgreSQL</span>
@@ -706,10 +801,14 @@
           </a>
         </div>
         <div class="col-lg-4 d-flex">
-          <a href="https://github.com/rishi500-doc/pediatric-EMR" target="_blank" class="w-100" style="text-decoration: none; color: inherit; display: flex;">
+          <a href="https://github.com/rishi500-doc/pediatric-EMR" target="_blank" class="w-100"
+            style="text-decoration: none; color: inherit; display: flex;">
             <div class="card-expertise w-100" style="display: flex; flex-direction: column;">
-              <h3 style="font-size:1.6rem; margin-top: 10px; font-family: 'Poppins', sans-serif; font-style: normal; text-transform: none; letter-spacing: -0.5px; font-weight: 600; color: #fff;">Pediatric EMR</h3>
-              <p style="margin-bottom: 25px;">Specialty Electronic Health Record for pediatricians and nursing staff — enrollment, growth tracking, prescriptions, and outpatient/inpatient clinical workflow screens.</p>
+              <h3
+                style="font-size:1.6rem; margin-top: 10px; font-family: 'Poppins', sans-serif; font-style: normal; text-transform: none; letter-spacing: -0.5px; font-weight: 600; color: #fff;">
+                Pediatric EMR</h3>
+              <p style="margin-bottom: 25px;">Specialty Electronic Health Record for pediatricians and nursing staff —
+                enrollment, growth tracking, prescriptions, and outpatient/inpatient clinical workflow screens.</p>
               <div class="tool-badge-container" style="margin-top: auto;">
                 <span class="tool-badge">Flask</span>
                 <span class="tool-badge">SQLAlchemy</span>
@@ -732,35 +831,49 @@
           <h2 class="hero-title m-0" style="font-size: 3.5rem;">Experience &amp; Impact</h2>
         </div>
       </div>
-      <p style="color: var(--text-dim); margin-bottom: 3rem; max-width: 600px;">From multi-specialty clinical wards to corporate healthcare IT automation — bridging medicine and engineering.</p>
-      
+      <p style="color: var(--text-dim); margin-bottom: 3rem; max-width: 600px;">From multi-specialty clinical wards to
+        corporate healthcare IT automation — bridging medicine and engineering.</p>
+
       <div class="row g-4 mb-3">
         <!-- Automation Testing & MSc -->
         <div class="col-lg-7">
-          <h3 style="font-size: 1rem; font-family: 'Poppins', sans-serif; margin-bottom: 20px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase;">Professional Experience</h3>
+          <h3
+            style="font-size: 1rem; font-family: 'Poppins', sans-serif; margin-bottom: 20px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase;">
+            Professional Experience</h3>
           <div class="card-expertise h-auto" style="padding: 25px 20px;">
             <div class="d-flex justify-content-between align-items-start">
               <div>
-                <h3 style="font-size:1.4rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">Automation Testing Intern</h3>
-                <p style="font-size:0.85rem; color: #2dd4bf; margin-bottom:15px; font-weight: 500;">Apollo Hospitals Corporate Office · Chennai · Dec 2025 – Apr 2026</p>
-                <ul style="color: var(--text-dim); font-size:0.85rem; padding-left:18px; line-height:1.8; margin-bottom: 0;">
-                  <li>Automated end-to-end EHR test scripts using Playwright &amp; TypeScript for Apollo's MedMantra platform.</li>
+                <h3
+                  style="font-size:1.4rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">
+                  Automation Testing Intern</h3>
+                <p style="font-size:0.85rem; color: #2dd4bf; margin-bottom:15px; font-weight: 500;">Apollo Hospitals
+                  Corporate Office · Chennai · Dec 2025 – Apr 2026</p>
+                <ul
+                  style="color: var(--text-dim); font-size:0.85rem; padding-left:18px; line-height:1.8; margin-bottom: 0;">
+                  <li>Automated end-to-end EHR test scripts using Playwright &amp; TypeScript for Apollo's MedMantra
+                    platform.</li>
                   <li>Executed functional &amp; regression testing; identified defects and validated UI workflows.</li>
                   <li>Designed reusable test cases with QA and dev teams, improving test coverage and reliability.</li>
                 </ul>
               </div>
-             
+
             </div>
           </div>
         </div>
 
         <div class="col-lg-5">
-          <h3 style="font-size: 1rem; font-family: 'Poppins', sans-serif; margin-bottom: 20px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase;">Education</h3>
+          <h3
+            style="font-size: 1rem; font-family: 'Poppins', sans-serif; margin-bottom: 20px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase;">
+            Education</h3>
           <div class="card-expertise h-auto" style="padding: 25px 20px;">
-            <h3 style="font-size:1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">MSc, Health Informatics &amp; Analytics</h3>
-            <p style="font-size:0.85rem; color: var(--text-dim); margin-bottom:10px;">The Apollo University, Chittoor</p>
+            <h3
+              style="font-size:1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">
+              MSc, Health Informatics &amp; Analytics</h3>
+            <p style="font-size:0.85rem; color: var(--text-dim); margin-bottom:10px;">The Apollo University, Chittoor
+            </p>
             <span class="tool-badge">CGPA 9.29/10</span>
-            <span class="tool-badge" style="background: transparent; border-color: transparent; box-shadow: none;">Sep 2024 – May 2026</span>
+            <span class="tool-badge" style="background: transparent; border-color: transparent; box-shadow: none;">Sep
+              2024 – May 2026</span>
           </div>
         </div>
       </div>
@@ -772,11 +885,16 @@
           <div class="card-expertise h-auto" style="padding: 25px 20px;">
             <div class="d-flex justify-content-between align-items-start">
               <div>
-                <h3 style="font-size:1.4rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">Clinical Intern</h3>
-                <p style="font-size:0.85rem; color: #2dd4bf; margin-bottom:15px; font-weight: 500;">Hindusthan Hospital · Coimbatore · Mar 2023 – Mar 2024</p>
-                <ul style="color: var(--text-dim); font-size:0.85rem; padding-left:18px; line-height:1.8; margin-bottom: 0;">
+                <h3
+                  style="font-size:1.4rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">
+                  Clinical Intern</h3>
+                <p style="font-size:0.85rem; color: #2dd4bf; margin-bottom:15px; font-weight: 500;">Hindusthan Hospital
+                  · Coimbatore · Mar 2023 – Mar 2024</p>
+                <ul
+                  style="color: var(--text-dim); font-size:0.85rem; padding-left:18px; line-height:1.8; margin-bottom: 0;">
                   <li>Rotations across Cardiology, Gastroenterology, Orthopedics, Nephrology, and ICU departments.</li>
-                  <li>Supported patient management, clinical documentation, diagnostic evaluations, and EHR workflows.</li>
+                  <li>Supported patient management, clinical documentation, diagnostic evaluations, and EHR workflows.
+                  </li>
                 </ul>
               </div>
             </div>
@@ -785,32 +903,42 @@
 
         <div class="col-lg-5">
           <div class="card-expertise h-auto" style="padding: 25px 20px;">
-            <h3 style="font-size:1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">B.Sc., Physician Assistant</h3>
-            <p style="font-size:0.85rem; color: var(--text-dim); margin-bottom:10px;">Nandha Academy of Allied Health Sciences, Erode</p>
+            <h3
+              style="font-size:1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 5px; text-transform: none;">
+              B.Sc., Physician Assistant</h3>
+            <p style="font-size:0.85rem; color: var(--text-dim); margin-bottom:10px;">Nandha Academy of Allied Health
+              Sciences, Erode</p>
             <span class="tool-badge">CGPA 7.16/10</span>
-            <span class="tool-badge" style="background: transparent; border-color: transparent; box-shadow: none;">May 2019 – Dec 2024</span>
+            <span class="tool-badge" style="background: transparent; border-color: transparent; box-shadow: none;">May
+              2019 – Dec 2024</span>
           </div>
         </div>
       </div>
-      
+
       <!-- Certifications Row -->
       <div class="mt-5 pt-4" style="border-top: 1px solid rgba(255,255,255,0.05);">
-        <h3 style="font-size: 2rem; font-family: 'Poppins', sans-serif; margin-bottom: 25px;margin-top: 100px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase;">Certifications</h3>
+        <h3
+          style="font-size: 2rem; font-family: 'Poppins', sans-serif; margin-bottom: 25px;margin-top: 100px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase;">
+          Certifications</h3>
         <div class="row g-4">
           <div class="col-md-6">
             <div class="card-expertise h-auto d-flex align-items-center" style="padding: 25px; gap: 20px;">
-             
+
               <div>
-                <h4 style="font-size: 1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 4px; color: #fff;">Data Analytics</h4>
+                <h4
+                  style="font-size: 1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 4px; color: #fff;">
+                  Data Analytics</h4>
                 <span style="font-size: 0.85rem; color: var(--text-dim);">Deloitte</span>
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="card-expertise h-auto d-flex align-items-center" style="padding: 25px; gap: 20px;">
-              
+
               <div>
-                <h4 style="font-size: 1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 4px; color: #fff;"><span style="color: #2dd4bf;">AI</span> Fundamentals</h4>
+                <h4
+                  style="font-size: 1.2rem; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 4px; color: #fff;">
+                  <span style="color: #2dd4bf;">AI</span> Fundamentals</h4>
                 <span style="font-size: 0.85rem; color: var(--text-dim);">Datacamp</span>
               </div>
             </div>
@@ -821,37 +949,48 @@
   </section>
 
   <!-- Premium Footer -->
-  <footer style="padding: 100px 0 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); position: relative; overflow: hidden; background: var(--bg-main); " id="contact">
+  <footer
+    style="padding: 100px 0 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); position: relative; overflow: hidden; background: var(--bg-main); "
+    id="contact">
     <!-- Abstract Background Glow for Luxury Feel -->
-    <div style="position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(circle, rgba(45, 212, 191, 0.05) 0%, rgba(0,0,0,0) 70%); z-index: 0; pointer-events: none;"></div>
+    <div
+      style="position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(circle, rgba(45, 212, 191, 0.05) 0%, rgba(0,0,0,0) 70%); z-index: 0; pointer-events: none;">
+    </div>
 
     <div class="container" style="position: relative; z-index: 1;">
-      
+
       <!-- Massive Hero Text -->
       <div class="text-center mb-5 pb-5">
-        <h2 style="font-size: clamp(4rem, 10vw, 8rem); font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px;">
+        <h2
+          style="font-size: clamp(4rem, 10vw, 8rem); font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px;">
           <span style="color: #2dd4bf;">LET'S BUILD</span>
           <span style="color: rgba(255,255,255,0.2); font-style: italic; font-weight: 400;">THE</span><br>
           <span style="color: #fff;">FUTURE TOGETHER</span>
         </h2>
         <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
-          Exploring opportunities at the intersection of healthcare, data, and <span style="color: #2dd4bf;">AI</span> to create meaningful digital solutions.
+          Exploring opportunities at the intersection of healthcare, data, and <span style="color: #2dd4bf;">AI</span>
+          to create meaningful digital solutions.
         </p>
       </div>
 
 
       <div class="row g-4 mb-5 pb-4">
-        
+
         <!-- Left Card -->
         <div class="col-lg-6 d-flex">
           <div class="footer-card w-100 d-flex flex-column" style="padding: 50px; border-radius: 24px;">
             <div class="d-flex justify-content-between align-items-center mb-5">
-              <span style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Mission</span>
+              <span
+                style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Mission</span>
               <i class="fa-solid fa-arrow-right" style="color: var(--text-dim);"></i>
             </div>
-            <h3 style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; color: #fff; font-weight: 600; margin-bottom: 20px; letter-spacing: -1px;">Creating Meaningful<br>Digital Solutions</h3>
-            <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.8; margin-bottom: 40px; max-width: 90%;">
-              I enjoy using technology, data, and healthcare knowledge to build tools that solve real-world problems and make a positive impact.
+            <h3
+              style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; color: #fff; font-weight: 600; margin-bottom: 20px; letter-spacing: -1px;">
+              Creating Meaningful<br>Digital Solutions</h3>
+            <p
+              style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.8; margin-bottom: 40px; max-width: 90%;">
+              I enjoy using technology, data, and healthcare knowledge to build tools that solve real-world problems and
+              make a positive impact.
             </p>
           </div>
         </div>
@@ -860,47 +999,67 @@
         <div class="col-lg-6 d-flex">
           <div class="footer-card w-100 d-flex flex-column" style="padding: 50px; border-radius: 24px;">
             <div class="d-flex justify-content-between align-items-center mb-5">
-              <span style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px;">
-                Let's Connect <span style="display:inline-block; width:6px; height:6px; background:#2dd4bf; border-radius:50%;"></span>
+              <span
+                style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px;">
+                Let's Connect <span
+                  style="display:inline-block; width:6px; height:6px; background:#2dd4bf; border-radius:50%;"></span>
               </span>
               <i class="fa-solid fa-arrow-right" style="color: var(--text-dim);"></i>
             </div>
-            <h3 style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; color: #fff; font-weight: 600; margin-bottom: 40px; letter-spacing: -1px;">Ready to innovate<br>together?</h3>
-            
+            <h3
+              style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; color: #fff; font-weight: 600; margin-bottom: 40px; letter-spacing: -1px;">
+              Ready to innovate<br>together?</h3>
+
             <div class="mt-auto">
-              <a href="javascript:void(0)" onclick="openContactModal()" class="btn-neo" style="display: inline-block; padding: 15px 40px; border-radius: 15px; background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; text-decoration: none; font-weight: 500; font-family: 'Poppins', sans-serif; transition: all 0.3s; margin-bottom: 30px;" onmouseover="this.style.borderColor='#2dd4bf'; this.style.color='#2dd4bf'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'; this.style.color='#fff'">Reach Out</a>
-              
+              <a href="javascript:void(0)" onclick="openContactModal()" class="btn-neo"
+                style="display: inline-block; padding: 15px 40px; border-radius: 15px; background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; text-decoration: none; font-weight: 500; font-family: 'Poppins', sans-serif; transition: all 0.3s; margin-bottom: 30px;"
+                onmouseover="this.style.borderColor='#2dd4bf'; this.style.color='#2dd4bf'"
+                onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'; this.style.color='#fff'">Reach Out</a>
+
               <div class="d-flex gap-4 align-items-center">
-                <a href="https://www.linkedin.com/in/risikesavan-t-0b0533217" target="_blank" style="color: var(--text-dim); font-size:1rem; transition: color 0.3s;text-decoration: none;" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='var(--text-dim)'">LinkedIn</a>
-                <a href="https://github.com/rishi500-doc" target="_blank" style="color: var(--text-dim); font-size:1rem; transition: color 0.3s;text-decoration: none;" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='var(--text-dim)'">GitHub</a>
-                <a href="mailto:[EMAIL_ADDRESS]" style="color: var(--text-dim); font-size:1rem; transition: color 0.3s;text-decoration: none;" onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='var(--text-dim)'">Email</a>
+                <a href="https://www.linkedin.com/in/risikesavan-t-0b0533217" target="_blank"
+                  style="color: var(--text-dim); font-size:1rem; transition: color 0.3s;text-decoration: none;"
+                  onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='var(--text-dim)'">LinkedIn</a>
+                <a href="https://github.com/rishi500-doc" target="_blank"
+                  style="color: var(--text-dim); font-size:1rem; transition: color 0.3s;text-decoration: none;"
+                  onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='var(--text-dim)'">GitHub</a>
+                <a href="mailto:[EMAIL_ADDRESS]"
+                  style="color: var(--text-dim); font-size:1rem; transition: color 0.3s;text-decoration: none;"
+                  onmouseover="this.style.color='#2dd4bf'" onmouseout="this.style.color='var(--text-dim)'">Email</a>
               </div>
             </div>
           </div>
         </div>
 
       </div>
-        
 
-  <div class="modal-overlay" id="modalOverlay" onclick="closeContactModal()"></div>
-  <div id="contactModal">
-    <button class="close-btn" onclick="closeContactModal()"><i class="fa-solid fa-xmark"></i></button>
-    <form id="contactForm" class="contact-form" style="margin-top: 10px;">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn-neo" style="width: 100%; padding: 12px; border-radius: 8px; background: #1a1a1a; border: none; color: #fff; font-weight: 500; font-family: 'Poppins', sans-serif; cursor: pointer; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); margin-top: 5px;" onmouseover="this.style.background='#000'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.background='#1a1a1a'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">Submit</button>
-      <p id="formResult" style="display: none; text-align: center; margin-top: 15px; color: #2dd4bf; font-family: 'Poppins', sans-serif; font-size: 0.9rem;"></p>
-    </form>
-    </div>
-  </div>
 
-      <!-- Footer Bottom -->
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4" style="border-top: 1px solid rgba(44, 43, 43, 0.05);">
-        <p class="text-muted small mb-0" style="font-family: 'Poppins', sans-serif;color: #BDBDBD;">
-          © 2026 Risikesavan T
-        </p>
+      <div class="modal-overlay" id="modalOverlay" onclick="closeContactModal()"></div>
+      <div id="contactModal">
+        <button class="close-btn" onclick="closeContactModal()"><i class="fa-solid fa-xmark"></i></button>
+        <form id="contactForm" class="contact-form" style="margin-top: 10px;">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn-neo"
+            style="width: 100%; padding: 12px; border-radius: 8px; background: #1a1a1a; border: none; color: #fff; font-weight: 500; font-family: 'Poppins', sans-serif; cursor: pointer; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); margin-top: 5px;"
+            onmouseover="this.style.background='#000'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)'"
+            onmouseout="this.style.background='#1a1a1a'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">Submit</button>
+          <p id="formResult"
+            style="display: none; text-align: center; margin-top: 15px; color: #2dd4bf; font-family: 'Poppins', sans-serif; font-size: 0.9rem;">
+          </p>
+        </form>
       </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4"
+      style="border-top: 1px solid rgba(44, 43, 43, 0.05);">
+      <p class="mb-0 footer-copyright"
+        style="font-family: 'Poppins', sans-serif; color: #626161; font-size: 0.95rem; font-weight: 500; margin-left: 110px;">
+        &copy; 2026 Risikesavan T. All rights reserved.
+      </p>
+    </div>
     </div>
   </footer>
 
@@ -974,7 +1133,7 @@
         scrub: true
       }
     });
-  
+
     function openContactModal() {
       document.getElementById('contactModal').classList.add('active');
       document.getElementById('modalOverlay').classList.add('active');
@@ -991,7 +1150,7 @@
     const formResult = document.getElementById('formResult');
 
     if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
+      contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
         formResult.style.display = 'block';
         formResult.innerText = "Sending...";
@@ -1009,26 +1168,53 @@
             'Accept': 'application/json'
           }
         })
-        .then(async (response) => {
-          if (response.ok) {
-            formResult.innerText = "Message sent successfully!";
-            formResult.style.color = '#2dd4bf';
-            contactForm.reset();
-            setTimeout(() => {
-              closeContactModal();
-              formResult.style.display = 'none';
-            }, 3000);
-          } else {
-            let json = await response.json();
-            console.log(response);
-            formResult.innerText = json.error || "Oops! There was a problem submitting your form";
+          .then(async (response) => {
+            if (response.ok) {
+              formResult.innerText = "Message sent successfully!";
+              formResult.style.color = '#2dd4bf';
+              contactForm.reset();
+              setTimeout(() => {
+                closeContactModal();
+                formResult.style.display = 'none';
+              }, 3000);
+            } else {
+              let json = await response.json();
+              console.log(response);
+              formResult.innerText = json.error || "Oops! There was a problem submitting your form";
+              formResult.style.color = '#ff4a4a';
+            }
+          })
+          .catch(error => {
+            console.log(error);
+            formResult.innerText = "Oops! There was a problem submitting your form";
             formResult.style.color = '#ff4a4a';
-          }
-        })
-        .catch(error => {
-          console.log(error);
-          formResult.innerText = "Oops! There was a problem submitting your form";
-          formResult.style.color = '#ff4a4a';
+          });
+      });
+    }
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinksContainer = document.getElementById('navLinks');
+    const navLinksItems = document.querySelectorAll('.nav-links a');
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        if (navLinksContainer.classList.contains('active')) {
+          icon.classList.remove('fa-bars-staggered');
+          icon.classList.add('fa-xmark');
+        } else {
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars-staggered');
+        }
+      });
+      // Close menu when clicking a link
+      navLinksItems.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinksContainer.classList.remove('active');
+          const icon = mobileMenuBtn.querySelector('i');
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars-staggered');
         });
       });
     }
